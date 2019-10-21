@@ -48,22 +48,21 @@ function withCallback(callback, ...args) {
 function replaceNumberToString(...numbers) {
   numbers = [...numbers];
 
-  return numbers.map(num => {
-    switch (true) {
-      case !(num % 7) && !(num % 3):
-        return "foobar";
-      case !(num % 7):
-        return "bar";
-      case !(num % 3):
-        return "foo";
-      default:
-        return num;
-    }
-  })
-  .join(' ')
+  return numbers
+    .map(num => {
+      switch (true) {
+        case !(num % 7) && !(num % 3):
+          return "foobar";
+        case !(num % 7):
+          return "bar";
+        case !(num % 3):
+          return "foo";
+        default:
+          return num;
+      }
+    })
+    .join(" ");
 }
-
-console.log('replace', replaceNumberToString(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 21))
 
 function findMatchPercent(str1, str2) {
   const max = Math.max(str1.length, str2.length);
@@ -75,5 +74,3 @@ function findMatchPercent(str1, str2) {
 
   return (result / max) * 100;
 }
-
-console.log("match", findMatchPercent("abc", "abcd"));
