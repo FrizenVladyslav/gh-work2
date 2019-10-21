@@ -50,17 +50,20 @@ function replaceNumberToString(...numbers) {
 
   return numbers.map(num => {
     switch (true) {
-      case !num % 7 && !num % 3:
+      case !(num % 7) && !(num % 3):
         return "foobar";
-      case !num % 7:
+      case !(num % 7):
         return "bar";
-      case !num % 3:
+      case !(num % 3):
         return "foo";
       default:
         return num;
     }
-  });
+  })
+  .join(' ')
 }
+
+console.log('replace', replaceNumberToString(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 21))
 
 function findMatchPercent(str1, str2) {
   const max = Math.max(str1.length, str2.length);
