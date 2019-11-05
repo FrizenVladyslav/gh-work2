@@ -4,7 +4,7 @@ function sum(arr) {
   let sum = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+    sum += Number(arr[i]);
   }
   return sum;
 }
@@ -13,8 +13,8 @@ function min(arr) {
   let min = arr[0];
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < min) {
-      min = arr[i];
+    if (+arr[i] < +min) {
+      min = +arr[i];
     } 
   }
   return min;
@@ -24,8 +24,8 @@ function max(arr) {
   let max = arr[0];
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
+    if (+arr[i] > +max) {
+      max = +arr[i];
     } 
   }
   return max;
@@ -82,5 +82,6 @@ function findMatchPercent(str1, str2) {
     } 
   }
 
-  return (result / max) * 100;
+  result = (result / max) * 100;
+  return Number.isInteger(result) ? result : result.toFixed(2) 
 }
