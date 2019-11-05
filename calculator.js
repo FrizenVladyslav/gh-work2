@@ -11,10 +11,14 @@ function handleError( message) {
 }
 
 rl.question('Input first number: ', firstNumber => {
-  if (isNaN(firstNumber)) handleError('Not valid first number')
+  if (isNaN(firstNumber)) {
+    handleError('Not valid first number')
+  } 
 
   rl.question('Input second number: ', secondNumber => {
-    if (isNaN(secondNumber)) handleError('Not valid second number')
+    if (isNaN(secondNumber)) {
+      handleError('Not valid second number')
+    } 
 
     rl.question('Input operator( + or - or / or * ): ', operator => {
       let res = 0
